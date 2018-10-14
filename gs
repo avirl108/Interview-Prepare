@@ -98,5 +98,30 @@ class Solution {
     }
 }
 
+【missing number】短路了吧？
+class Solution {
+public int missingNumber(int[] nums) {
+    
+    //ini = sort
+    Arrays.sort(nums);
+    
+    //cc
+    if (nums[0] != 0) {
+        return 0;
+    }
 
+    //for
+    for (int i = 0; i < nums.length - 1; i++) {
+    //notice
+        if (nums[i + 1] != nums[i] + 1) {
+            return nums[i] + 1;
+        }
+    }
+
+    //return
+    return nums.length;
+}
+}
+
+【】
 
