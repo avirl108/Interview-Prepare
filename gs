@@ -190,6 +190,31 @@ public class Solution {
         //return
         return true;
     }
+    
+【二分法解根号2】
+class Solution {
+    public int mySqrt(int x) {
+        //bs
+        long start = 1, end = x;
+        while (start + 1 < end) {
+            long mid = start + (end - start) / 2;
+            if (mid * mid <= x) {
+                start = mid;
+            }else {
+                end = mid;
+            }
+        }
+        
+        //return end or start
+        if (end * end <= x) {
+            return (int)end;
+        }
+        return (int)start;
+}
+}
+
+【】
+
 }
 
 【斐波那契数列 recursion】
