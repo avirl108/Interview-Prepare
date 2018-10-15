@@ -123,5 +123,35 @@ public int missingNumber(int[] nums) {
 }
 }
 
-【】
+【reverse string】
+class Solution {
+    public String reverseString(String s) {
+        //corner case
+        if (s == null) {
+            return null;
+        }
+        int i = 0, j = s.length() - 1;
+        //convert to char[]
+        char[] chars = s.toCharArray();
+        while (i < j) {
+            char temp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = temp;
+            //notice here
+            i++;
+            j--;
+        }
+        //convert again
+        return new String(chars);
+        //return
+    }
+}
+
+【方法2】
+public class Solution {
+    public String reverseString(String s) {
+        return new StringBuilder(s).reverse().toString();
+    }
+}
+
 
