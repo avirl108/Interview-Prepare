@@ -499,3 +499,32 @@ class GFG {
     } 
     
 
+【Find All Duplicates in an Array】
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        //initialization
+        List<Integer> result = new ArrayList<Integer>();
+        
+        //for loop: get the new index, add to result if negative, change to negative
+        for (int i = 0; i < nums.length; i++) {
+            //get the new index
+            int index = Math.abs(nums[i]) - 1;
+            
+            //add to result if negative
+            if (nums[index] < 0) result.add(index + 1);
+            
+            //change to negative
+            else nums[index] *= (-1);
+        }
+        //return
+        return result;
+    }
+}
+/*
+                [4, 3, 2, 7, 8, 2, 3, 1]
+            i    0  1  2  3  4  5  6  7
+           index 3  2  1
+nums[index]*(-1) -7 -2 -3
+*/
+
+【】
