@@ -316,3 +316,35 @@ public int move(int row, int col, int player) {
     return 0;
 }
 }
+
+【happy number】
+class Solution {
+    public boolean isHappy(int n) {
+        //cc
+        if (n == 0) {
+            return false;
+        }
+        
+        //ini
+        int squareSum, remain;
+        Set set = new HashSet();
+        
+        //while loop, contains
+        while (set.add(n)) {
+            squareSum = 0;
+            
+            while (n > 0) {
+                remain = n % 10;
+                squareSum += remain * remain;
+                n = n / 10;
+            }
+            
+            if (squareSum == 1) return true;
+            n = squareSum;
+        }
+        
+        return false;
+    }
+}
+
+【】
