@@ -431,5 +431,28 @@ class Solution {
     }
 }
 
+【group anagrams】
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        //cc
+        if (strs == null || strs.length == 0) return new ArrayList<List<String>>();
+        
+        //ini: map, char[]
+        Map<String, List<String>> map = new HashMap<>();
+        
+        //for loop: add to char, to map
+        for (String str : strs) {
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String anagram = String.valueOf(chars);
+            if (!map.containsKey(anagram)) map.put(anagram, new ArrayList<String>());
+            map.get(anagram).add(str);
+        }
+        
+        //return (map)
+        return new ArrayList<List<String>>(map.values());
+    }
+}
+
 【】
 
