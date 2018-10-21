@@ -347,4 +347,51 @@ class Solution {
     }
 }
 
+【number permutation】
+public class Solution {
+    /*
+     * @param nums: A list of integers.
+     * @return: A list of permutations.
+     */
+    public List<List<Integer>> permute(int[] nums) {
+        //corner case
+        List<List<Integer>> results = new ArrayList<>();//
+        List<Integer> permutations = new ArrayList<Integer>();
+        HashSet<Integer> set = new HashSet<Integer>();
+        
+        if (nums == null) {
+            return results;
+        }
+        if (nums.length == 0) {
+            results.add(new ArrayList<Integer>());
+            return results;
+        }
+        //helper
+        helper(nums, permutations, set, results);
+        return results;
+    }
+    
+    //helper
+    public void helper(int[] nums, List<Integer> permutations, HashSet<Integer> set, List<List<Integer>> results) {
+        
+        if (permutations.size() == nums.length) {//
+                results.add(new ArrayList<Integer>(permutations));
+                return ;
+            }
+            
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i])) {
+                continue;
+            }
+            
+            permutations.add(nums[i]);
+            set.add(nums[i]);
+            helper(nums, permutations, set, results);
+            set.remove(nums[i]);
+            permutations.remove(permutations.size() - 1);
+        }
+    }
+}
+
 【】
+
